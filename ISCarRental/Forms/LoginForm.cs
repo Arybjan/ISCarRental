@@ -16,23 +16,35 @@ namespace ISCarRental.Forms
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
-        { 
-            string sql = "SELECT Users.id, Users.name, Accounts.role_id FROM Accounts" +
-                "INNER JOIN Users ON Accounts.user_id = Users.id WHERE Accounts.login=? AND Accounts.password=?";
+        {
+            if (textBoxLogin.Text == "" || textBoxPassword.Text == "")
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля");
+                return;
+
+            }
+
+            
+            string sql = @"
+                SELECT Users.id, Users.name, Accounts.role_id
+                FROM Accounts
+                INNER JOIN Users ON Accounts.user_id = Users.id
+                WHERE Accounts.login=? AND Accounts.password=?";
 
             DataTable table = Database.ExecuteQuery(
                 sql,
                 new OleDbParameter("@login", textBoxLogin.Text),
                 new OleDbParameter("@password", textBoxPassword.Text)
-            );
-            //int userId = Convert.ToInt32(table.Rows[0]["id"]);
+                );
+
 
             if (table.Rows.Count > 0)
             {
                 int userId = Convert.ToInt32(table.Rows[0]["id"]);
                 int roleId = Convert.ToInt32(table.Rows[0]["role_id"]);
+                string userName = table.Rows[0]["name"].ToString();
 
-                MainForm main = new MainForm(userId, roleId);
+                MainForm main = new MainForm(userId, roleId, userName);
                 main.Show();
                 this.Hide();
             }

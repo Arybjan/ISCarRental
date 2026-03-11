@@ -13,12 +13,14 @@ namespace ISCarRental.Forms
     public partial class MainForm : Form
     {
         int userId;
-        int roleId
-        public MainForm(int id, int role)
+        int roleId;
+        string userName;
+        public MainForm(int id, int role, string username)
         {
             InitializeComponent();
             userId = id;
             roleId = role;
+            userName = username;
         }
 
         private void btnViewCars_Click(object sender, EventArgs e)
@@ -44,6 +46,9 @@ namespace ISCarRental.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            labelUser.Text = $"Пользователь: {userName}";
+            labelRole.Text = $"Роль: {(roleId == 1 ? "Администратор" : "Клиент")}";
+
             if (roleId != 1) // Если не админ
             {
                 btnManageUsers.Enabled = false; // Отключаем кнопку просмотра всех пользователей

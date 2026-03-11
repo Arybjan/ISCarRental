@@ -43,6 +43,8 @@
             this.btnMyRentals = new System.Windows.Forms.Button();
             this.btnViewCars = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.labelRole = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -246,11 +248,31 @@
             this.lblWelcome.TabIndex = 3;
             this.lblWelcome.Text = "Добро пожаловать!";
             // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(414, 120);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(44, 16);
+            this.labelUser.TabIndex = 4;
+            this.labelUser.Text = "label1";
+            // 
+            // labelRole
+            // 
+            this.labelRole.AutoSize = true;
+            this.labelRole.Location = new System.Drawing.Point(414, 160);
+            this.labelRole.Name = "labelRole";
+            this.labelRole.Size = new System.Drawing.Size(44, 16);
+            this.labelRole.TabIndex = 5;
+            this.labelRole.Text = "label2";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 562);
+            this.Controls.Add(this.labelRole);
+            this.Controls.Add(this.labelUser);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.panel1);
@@ -281,5 +303,7 @@
         private System.Windows.Forms.Button btnMyRentals;
         private System.Windows.Forms.Button btnViewCars;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelRole;
     }
 }
