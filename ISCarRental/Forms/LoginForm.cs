@@ -53,7 +53,7 @@ namespace ISCarRental.Forms
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
-        {   
+        {    
             RegisterForm reg = new RegisterForm();
             reg.Show();
         }

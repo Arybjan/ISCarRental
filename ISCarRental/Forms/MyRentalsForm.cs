@@ -25,6 +25,7 @@ namespace ISCarRental.Forms
         {
             string sql = @"
                 SELECT Rentals.id AS rent_id,
+                       Rentals.cars_id AS cars_id,
                        Cars.brand AS Brand,
                        Cars.model AS Model,
                        Rentals.start_date AS StartDate,
@@ -52,6 +53,60 @@ namespace ISCarRental.Forms
 
         private void MyRentalsForm_Load(object sender, EventArgs e)
         {
+            LoadMyRentals();
+        }
+
+        private void btnReturnCar_Click(object sender, EventArgs e)
+        {
+            if (dgvMyRentals.CurrentRow == null)
+            {
+                MessageBox.Show("Выберите аренду");
+                return;
+            }
+
+            int rentId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["rent_id"].Value);
+
+            string sql = "DELETE FROM Rentals WHERE id=?";
+
+            Database.ExecuteNonQuery(
+                sql,
+                new OleDbParameter("@id", rentId)
+            );
+
+            MessageBox.Show("Автомобиль возвращён");
+
+            LoadMyRentals();
+        }
+
+        private void btnCencel_Click(object sender, EventArgs e)
+        {
+            if (dgvMyRentals.CurrentRow == null)
+            {
+                MessageBox.Show("Выберите аренду");
+                return;
+            }
+
+            int rentId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["rent_id"].Value);
+            int carId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["cars_id"].Value);
+
+            // Удаляем аренду
+            string sqlDeleteRent = "DELETE FROM Rentals WHERE id=?";
+
+            Database.ExecuteNonQuery(
+                sqlDeleteRent,
+                new OleDbParameter("@id", rentId)
+            );
+
+            // Обновляем статус автомобиля на "Свободно"
+            string sqlUpdateCar = "UPDATE Cars SET status='Свободно' WHERE id=?";
+
+            Database.ExecuteNonQuery(
+                sqlUpdateCar,
+                new OleDbParameter("@id", carId)
+            );
+
+            MessageBox.Show("Зказ отменен!");
+
             LoadMyRentals();
         }
     }
