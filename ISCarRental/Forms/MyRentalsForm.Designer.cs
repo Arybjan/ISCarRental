@@ -42,14 +42,14 @@
             this.dgvMyRentals.Name = "dgvMyRentals";
             this.dgvMyRentals.RowHeadersWidth = 51;
             this.dgvMyRentals.RowTemplate.Height = 24;
-            this.dgvMyRentals.Size = new System.Drawing.Size(420, 453);
+            this.dgvMyRentals.Size = new System.Drawing.Size(628, 453);
             this.dgvMyRentals.TabIndex = 0;
             // 
             // btnReturnCar
             // 
-            this.btnReturnCar.Location = new System.Drawing.Point(673, 230);
+            this.btnReturnCar.Location = new System.Drawing.Point(630, 342);
             this.btnReturnCar.Name = "btnReturnCar";
-            this.btnReturnCar.Size = new System.Drawing.Size(75, 23);
+            this.btnReturnCar.Size = new System.Drawing.Size(131, 46);
             this.btnReturnCar.TabIndex = 1;
             this.btnReturnCar.Text = "Вернуть автомобиль";
             this.btnReturnCar.UseVisualStyleBackColor = true;
@@ -57,11 +57,11 @@
             // 
             // btnCencelRental
             // 
-            this.btnCencelRental.Location = new System.Drawing.Point(673, 282);
+            this.btnCencelRental.Location = new System.Drawing.Point(630, 394);
             this.btnCencelRental.Name = "btnCencelRental";
-            this.btnCencelRental.Size = new System.Drawing.Size(93, 23);
+            this.btnCencelRental.Size = new System.Drawing.Size(149, 46);
             this.btnCencelRental.TabIndex = 2;
-            this.btnCencelRental.Text = "Отменить";
+            this.btnCencelRental.Text = "Отменить заказ";
             this.btnCencelRental.UseVisualStyleBackColor = true;
             this.btnCencelRental.Click += new System.EventHandler(this.btnCencel_Click);
             // 
@@ -74,7 +74,7 @@
             this.Controls.Add(this.btnReturnCar);
             this.Controls.Add(this.dgvMyRentals);
             this.Name = "MyRentalsForm";
-            this.Text = "MyRentalsForm";
+            this.Text = "Мои заказы";
             this.Load += new System.EventHandler(this.MyRentalsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyRentals)).EndInit();
             this.ResumeLayout(false);

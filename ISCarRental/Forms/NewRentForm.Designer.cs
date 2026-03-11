@@ -42,7 +42,7 @@
             this.dgvCars.Name = "dgvCars";
             this.dgvCars.RowHeadersWidth = 51;
             this.dgvCars.RowTemplate.Height = 24;
-            this.dgvCars.Size = new System.Drawing.Size(363, 426);
+            this.dgvCars.Size = new System.Drawing.Size(506, 426);
             this.dgvCars.TabIndex = 0;
             // 
             // dtStart
@@ -61,11 +61,11 @@
             // 
             // btnRent
             // 
-            this.btnRent.Location = new System.Drawing.Point(671, 95);
+            this.btnRent.Location = new System.Drawing.Point(583, 92);
             this.btnRent.Name = "btnRent";
-            this.btnRent.Size = new System.Drawing.Size(75, 23);
+            this.btnRent.Size = new System.Drawing.Size(134, 32);
             this.btnRent.TabIndex = 3;
-            this.btnRent.Text = "button1";
+            this.btnRent.Text = "Арендовать";
             this.btnRent.UseVisualStyleBackColor = true;
             this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
             // 

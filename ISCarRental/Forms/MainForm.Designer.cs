@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnAdminCar = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnAllRentals = new System.Windows.Forms.Button();
@@ -119,6 +120,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panelMenu.Controls.Add(this.btnAdminCar);
             this.panelMenu.Controls.Add(this.btnExit);
             this.panelMenu.Controls.Add(this.btnManageUsers);
             this.panelMenu.Controls.Add(this.btnAllRentals);
@@ -131,6 +133,24 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(293, 562);
             this.panelMenu.TabIndex = 2;
+            // 
+            // btnAdminCar
+            // 
+            this.btnAdminCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAdminCar.FlatAppearance.BorderSize = 0;
+            this.btnAdminCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAdminCar.ForeColor = System.Drawing.Color.White;
+            this.btnAdminCar.Location = new System.Drawing.Point(0, 334);
+            this.btnAdminCar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdminCar.Name = "btnAdminCar";
+            this.btnAdminCar.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnAdminCar.Size = new System.Drawing.Size(293, 62);
+            this.btnAdminCar.TabIndex = 6;
+            this.btnAdminCar.Text = "   Управление авто";
+            this.btnAdminCar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminCar.UseVisualStyleBackColor = false;
+            this.btnAdminCar.Click += new System.EventHandler(this.btnAdminCar_Click);
             // 
             // btnExit
             // 
@@ -278,7 +298,7 @@
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
-            this.Text = "Main";
+            this.Text = "Главная";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
@@ -306,5 +326,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelRole;
+        private System.Windows.Forms.Button btnAdminCar;
     }
 }

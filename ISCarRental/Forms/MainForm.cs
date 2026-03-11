@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,24 @@ namespace ISCarRental.Forms
 
         private void btnMyRentals_Click(object sender, EventArgs e)
         {
+            string sql = "SELECT COUNT(*) FROM Rentals WHERE client_id=?";
+
+            DataTable table = Database.ExecuteQuery(
+                sql,
+                new OleDbParameter("@id", userId)
+            );
+
+            int count = Convert.ToInt32(table.Rows[0][0]);
+
+            if (count == 0)
+            {
+                MessageBox.Show(
+                    "У вас пока нет активных аренд.\nВы можете оформить новую аренду в разделе 'Новая аренда'.",
+                    "Информация"
+                );
+                return;
+            }
+
             MyRentalsForm rentalsForm = new MyRentalsForm(userId);
             rentalsForm.Show();
         }
@@ -53,6 +72,7 @@ namespace ISCarRental.Forms
             {
                 btnManageUsers.Enabled = false; // Отключаем кнопку просмотра всех пользователей
                 btnAllRentals.Enabled = false; // Отключаем кнопку просмотра всех аренд
+                btnAdminCar.Enabled = false; // Отключаем кнопку управления автомобилями
             }
         }
 
@@ -72,6 +92,14 @@ namespace ISCarRental.Forms
                 this.Close();
             }
 
+        }
+
+        private void btnAdminCar_Click(object sender, EventArgs e)
+        {
+            AdminCarsForm adminCarsForm = new AdminCarsForm();
+            adminCarsForm.Show();
+
+            this .Hide();
         }
     }
 }

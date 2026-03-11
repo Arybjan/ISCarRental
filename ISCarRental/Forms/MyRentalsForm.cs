@@ -19,6 +19,10 @@ namespace ISCarRental.Forms
         {
             InitializeComponent();
             userId = id;
+
+            dgvMyRentals.AllowUserToAddRows = false;
+            dgvMyRentals.ReadOnly = true;
+            dgvMyRentals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void LoadMyRentals()
@@ -40,15 +44,15 @@ namespace ISCarRental.Forms
                 new OleDbParameter("@user", userId)
             );
 
-            if (table.Rows.Count == 0)
-            {
-                dgvMyRentals.DataSource = null;
-                MessageBox.Show("У вас пока нет арендованных автомобилей.");
-            }
-            else
-            {
-                dgvMyRentals.DataSource = table;
-            }
+            dgvMyRentals.DataSource = table;
+
+            dgvMyRentals.Columns["rent_id"].HeaderText = "ID аренды";
+            dgvMyRentals.Columns["cars_id"].HeaderText = "ID автомобиля";
+            dgvMyRentals.Columns["Brand"].HeaderText = "Бренд";
+            dgvMyRentals.Columns["Model"].HeaderText = "Модель";
+            dgvMyRentals.Columns["StartDate"].HeaderText = "Дата начала";
+            dgvMyRentals.Columns["EndDate"].HeaderText = "Дата окончания";
+            dgvMyRentals.Columns["Price"].HeaderText = "Стоимость в день";
         }
 
         private void MyRentalsForm_Load(object sender, EventArgs e)
