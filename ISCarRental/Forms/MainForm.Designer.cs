@@ -146,6 +146,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnManageUsers
             // 

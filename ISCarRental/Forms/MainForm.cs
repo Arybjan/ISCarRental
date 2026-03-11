@@ -55,5 +55,23 @@ namespace ISCarRental.Forms
                 btnAllRentals.Enabled = false; // Отключаем кнопку просмотра всех аренд
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Вы уверены что хотите выйти?",
+                "Выход",
+                MessageBoxButtons.YesNo
+                );
+
+            if (result == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+                login.Show();
+
+                this.Close();
+            }
+
+        }
     }
 }

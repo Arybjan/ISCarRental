@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
-using static ISCarRental.Database;
 
 namespace ISCarRental.Forms
 {
@@ -12,12 +11,11 @@ namespace ISCarRental.Forms
         public LoginForm()
         {
             InitializeComponent();
-            //using Database db = new Database();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (textBoxLogin.Text == "" || textBoxPassword.Text == "")
+            if (textBoxLogin.Text == "" || textBoxPassword.Text == "") // Если все поля не заполнены
             {
                 MessageBox.Show("Пожалуйста, заполните все поля");
                 return;
@@ -55,7 +53,7 @@ namespace ISCarRental.Forms
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
-        {
+        {   
             RegisterForm reg = new RegisterForm();
             reg.Show();
         }
