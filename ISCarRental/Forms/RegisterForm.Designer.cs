@@ -92,7 +92,6 @@
             this.textBoxPassport.Name = "textBoxPassport";
             this.textBoxPassport.Size = new System.Drawing.Size(179, 33);
             this.textBoxPassport.TabIndex = 7;
-            this.textBoxPassport.TextChanged += new System.EventHandler(this.textBoxPassport_TextChanged);
             // 
             // btnRegister
             // 
@@ -120,7 +119,6 @@
             this.label1.Size = new System.Drawing.Size(33, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "Имя";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -130,7 +128,6 @@
             this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "Фамилия";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -140,7 +137,6 @@
             this.label3.Size = new System.Drawing.Size(119, 16);
             this.label3.TabIndex = 12;
             this.label3.Text = "Номер телефона";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -150,7 +146,6 @@
             this.label4.Size = new System.Drawing.Size(106, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "Дата рождения";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -160,7 +155,6 @@
             this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 14;
             this.label5.Text = "Паспорт ID";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -170,7 +164,6 @@
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 15;
             this.label6.Text = "Логин";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -180,7 +173,6 @@
             this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 16;
             this.label7.Text = "Пароль";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // RegisterForm
             // 
@@ -204,7 +196,6 @@
             this.Controls.Add(this.textBoxlogin);
             this.Name = "RegisterForm";
             this.Text = "Регистрация";
-            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

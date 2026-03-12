@@ -50,6 +50,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(198, 22);
             this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // LoginButton
             // 
@@ -87,7 +88,7 @@
             this.btnRegiste.Size = new System.Drawing.Size(84, 25);
             this.btnRegiste.TabIndex = 5;
             this.btnRegiste.Text = "Register";
-            this.btnRegiste.UseVisualStyleBackColor = true;
+            this.btnRegiste.UseVisualStyleBackColor = false;
             this.btnRegiste.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // LoginForm

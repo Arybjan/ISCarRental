@@ -183,6 +183,11 @@
             // numMileage
             // 
             this.numMileage.Location = new System.Drawing.Point(630, 164);
+            this.numMileage.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numMileage.Name = "numMileage";
             this.numMileage.Size = new System.Drawing.Size(120, 22);
             this.numMileage.TabIndex = 13;
@@ -190,6 +195,11 @@
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(630, 220);
+            this.numPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(120, 22);
             this.numPrice.TabIndex = 14;
@@ -197,6 +207,11 @@
             // numYear
             // 
             this.numYear.Location = new System.Drawing.Point(203, 456);
+            this.numYear.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             this.numYear.Name = "numYear";
             this.numYear.Size = new System.Drawing.Size(120, 22);
             this.numYear.TabIndex = 15;

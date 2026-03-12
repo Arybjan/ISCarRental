@@ -184,6 +184,7 @@
             this.btnManageUsers.Text = "   Пользователи";
             this.btnManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManageUsers.UseVisualStyleBackColor = false;
+            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
             // btnAllRentals
             // 
@@ -201,6 +202,7 @@
             this.btnAllRentals.Text = "   Все Аренды";
             this.btnAllRentals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllRentals.UseVisualStyleBackColor = false;
+            this.btnAllRentals.Click += new System.EventHandler(this.btnAllRentals_Click);
             // 
             // btnNewRental
             // 

@@ -13,7 +13,8 @@ namespace ISCarRental.Forms
 {
     public partial class MainForm : Form
     {
-        int userId;
+        // Поля для хранения информации о пользователе
+        int userId; 
         int roleId;
         string userName;
         public MainForm(int id, int role, string username)
@@ -71,8 +72,13 @@ namespace ISCarRental.Forms
             if (roleId != 1) // Если не админ
             {
                 btnManageUsers.Enabled = false; // Отключаем кнопку просмотра всех пользователей
+                btnManageUsers.Visible = false; // Скрываем кнопку управления пользователями
+
                 btnAllRentals.Enabled = false; // Отключаем кнопку просмотра всех аренд
+                btnAllRentals.Visible = false; // Скрываем кнопку просмотра всех аренд
+
                 btnAdminCar.Enabled = false; // Отключаем кнопку управления автомобилями
+                btnAdminCar.Visible = false; // Скрываем кнопку управления автомобилями
             }
         }
 
@@ -82,7 +88,7 @@ namespace ISCarRental.Forms
                 "Вы уверены что хотите выйти?",
                 "Выход",
                 MessageBoxButtons.YesNo
-                );
+                ); // Сообщение о выходее
 
             if (result == DialogResult.Yes)
             {
@@ -99,7 +105,19 @@ namespace ISCarRental.Forms
             AdminCarsForm adminCarsForm = new AdminCarsForm();
             adminCarsForm.Show();
 
-            this .Hide();
+            //this .Hide();
+        }
+
+        private void btnAllRentals_Click(object sender, EventArgs e)
+        {
+            AllRentalsForm rentalsForm = new AllRentalsForm(); 
+            rentalsForm.Show();
+        }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            AllUsersForm usersForm = new AllUsersForm();   
+            usersForm.Show();
         }
     }
 }
