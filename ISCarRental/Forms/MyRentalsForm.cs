@@ -1,117 +1,199 @@
-﻿using ISCarRental;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ISCarRental.Forms
 {
-    public partial class MyRentalsForm : Form
+    public partial class MyRentalsForm1 : Form
     {
-        int userId;
-        public MyRentalsForm(int id)
+        private int _clientId;
+
+        public MyRentalsForm1(int clientId)
         {
             InitializeComponent();
-            userId = id;
-
-            dgvMyRentals.AllowUserToAddRows = false;
-            dgvMyRentals.ReadOnly = true;
-            dgvMyRentals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
-        private void LoadMyRentals()
-        {
-            string sql = @"
-                SELECT Rentals.id AS rent_id,
-                       Rentals.cars_id AS cars_id,
-                       Cars.brand AS Brand,
-                       Cars.model AS Model,
-                       Rentals.start_date AS StartDate,
-                       Rentals.end_date AS EndDate,
-                       Rentals.total_price AS Price
-                FROM (Rentals 
-                INNER JOIN Cars ON Rentals.cars_id = Cars.id)
-                WHERE Rentals.client_id = ?";
-
-            DataTable table = Database.ExecuteQuery(
-                sql,
-                new OleDbParameter("@user", userId)
-            );
-
-            dgvMyRentals.DataSource = table;
-
-            dgvMyRentals.Columns["rent_id"].HeaderText = "ID аренды";
-            dgvMyRentals.Columns["cars_id"].HeaderText = "ID автомобиля";
-            dgvMyRentals.Columns["Brand"].HeaderText = "Бренд";
-            dgvMyRentals.Columns["Model"].HeaderText = "Модель";
-            dgvMyRentals.Columns["StartDate"].HeaderText = "Дата начала";
-            dgvMyRentals.Columns["EndDate"].HeaderText = "Дата окончания";
-            dgvMyRentals.Columns["Price"].HeaderText = "Стоимость в день";
+            _clientId = clientId;
         }
 
         private void MyRentalsForm_Load(object sender, EventArgs e)
         {
-            LoadMyRentals();
+            LoadRentals();
         }
 
-        private void btnReturnCar_Click(object sender, EventArgs e)
+        private void LoadRentals()
         {
-            if (dgvMyRentals.CurrentRow == null)
+            string sql = @"
+    SELECT Rentals.id,
+           Cars.brand,
+           Cars.model,
+           Rentals.start_date,
+           Rentals.end_date,
+           Rentals.total_price,
+           RentalsStatus.status_name AS rental_status,
+           Rentals.payment_status
+    FROM ((Rentals
+    INNER JOIN Cars ON Rentals.cars_id = Cars.id)
+    INNER JOIN RentalsStatus ON Rentals.status_id = RentalsStatus.id)
+    WHERE Rentals.client_id = ?";
+
+            DataTable dt = Database.ExecuteQuery(
+                sql,
+                new System.Data.OleDb.OleDbParameter("@client_id", _clientId)
+            );
+
+            dgvMyRentals1.DataSource = dt;
+        }
+
+            //if (dgvMyRentals.Columns.Contains("id"))
+            //    dgvMyRentals.Columns["id"].HeaderText = "ID";
+
+            //if (dgvMyRentals.Columns.Contains("brand"))
+            //    dgvMyRentals.Columns["brand"].HeaderText = "Марка";
+
+            //if (dgvMyRentals.Columns.Contains("model"))
+            //    dgvMyRentals.Columns["model"].HeaderText = "Модель";
+
+            //if (dgvMyRentals.Columns.Contains("start_date"))
+            //    dgvMyRentals.Columns["start_date"].HeaderText = "Дата начала";
+
+            //if (dgvMyRentals.Columns.Contains("end_date"))
+            //    dgvMyRentals.Columns["end_date"].HeaderText = "Дата окончания";
+
+            //if (dgvMyRentals.Columns.Contains("total_price"))
+            //    dgvMyRentals.Columns["total_price"].HeaderText = "Сумма";
+
+            //if (dgvMyRentals.Columns.Contains("rental_status"))
+            //    dgvMyRentals.Columns["rental_status"].HeaderText = "Статус аренды";
+
+            //if (dgvMyRentals.Columns.Contains("payment_status"))
+            //    dgvMyRentals.Columns["payment_status"].HeaderText = "Статус оплаты";
+
+            //dgvMyRentals.AllowUserToAddRows = false;
+            //dgvMyRentals.ReadOnly = true;
+            //dgvMyRentals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgvMyRentals.MultiSelect = false;
+        //}
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (dgvMyRentals1.CurrentRow == null)
             {
-                MessageBox.Show("Выберите аренду");
+                MessageBox.Show("Выберите аренду.");
                 return;
             }
 
-            int rentId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["rent_id"].Value);
+            int rentalId = Convert.ToInt32(dgvMyRentals1.CurrentRow.Cells["id"].Value);
 
-            string sql = "DELETE FROM Rentals WHERE id=?";
+            PaymentForm form = new PaymentForm(rentalId);
+            form.ShowDialog();
 
-            Database.ExecuteNonQuery(
-                sql,
-                new OleDbParameter("@id", rentId)
-            );
-
-            MessageBox.Show("Автомобиль возвращён");
-
-            LoadMyRentals();
+            LoadRentals();
         }
 
         private void btnCencel_Click(object sender, EventArgs e)
         {
-            if (dgvMyRentals.CurrentRow == null)
+            try
             {
-                MessageBox.Show("Выберите аренду");
-                return;
+                if (dgvMyRentals1.CurrentRow == null)
+                {
+                    MessageBox.Show("Выберите аренду.");
+                    return;
+                }
+
+                int rentalId = Convert.ToInt32(dgvMyRentals1.CurrentRow.Cells["id"].Value);
+
+                DataTable rentalDt = Database.ExecuteQuery(
+                    "SELECT cars_id, rental_status FROM Rentals WHERE id = ?",
+                    new OleDbParameter("@id", rentalId)
+                );
+
+                if (rentalDt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Аренда не найдена.");
+                    return;
+                }
+
+                string currentStatus = rentalDt.Rows[0]["rental_status"].ToString();
+                int carId = Convert.ToInt32(rentalDt.Rows[0]["cars_id"]);
+
+                if (currentStatus == "Завершена")
+                {
+                    MessageBox.Show("Эта аренда уже завершена.");
+                    return;
+                }
+
+                Database.ExecuteNonQuery(
+                    "UPDATE Rentals SET rental_status = ? WHERE id = ?",
+                    new OleDbParameter("@rental_status", "Отменена"),
+                    new OleDbParameter("@id", rentalId)
+                );
+
+                Database.ExecuteNonQuery(
+                    "UPDATE Cars SET status = ? WHERE id = ?",
+                    new OleDbParameter("@status", "Свободно"),
+                    new OleDbParameter("@id", carId)
+                );
+
+                MessageBox.Show("Аренда отменена.");
+                LoadRentals();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при отмене аренды: " + ex.Message);
+            }
+        }
 
-            int rentId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["rent_id"].Value);
-            int carId = Convert.ToInt32(dgvMyRentals.CurrentRow.Cells["cars_id"].Value);
+        private void btnReturnCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvMyRentals1.CurrentRow == null)
+                {
+                    MessageBox.Show("Выберите аренду.");
+                    return;
+                }
 
-            // Удаляем аренду
-            string sqlDeleteRent = "DELETE FROM Rentals WHERE id=?";
+                int rentalId = Convert.ToInt32(dgvMyRentals1.CurrentRow.Cells["id"].Value);
 
-            Database.ExecuteNonQuery(
-                sqlDeleteRent,
-                new OleDbParameter("@id", rentId)
-            );
+                DataTable rentalDt = Database.ExecuteQuery(
+                    "SELECT cars_id, rental_status FROM Rentals WHERE id = ?",
+                    new OleDbParameter("@id", rentalId)
+                );
 
-            // Обновляем статус автомобиля на "Свободно"
-            string sqlUpdateCar = "UPDATE Cars SET status='Свободно' WHERE id=?";
+                if (rentalDt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Аренда не найдена.");
+                    return;
+                }
 
-            Database.ExecuteNonQuery(
-                sqlUpdateCar,
-                new OleDbParameter("@id", carId)
-            );
+                string currentStatus = rentalDt.Rows[0]["rental_status"].ToString();
+                int carId = Convert.ToInt32(rentalDt.Rows[0]["cars_id"]);
 
-            MessageBox.Show("Зказ отменен!");
+                if (currentStatus == "Отменена")
+                {
+                    MessageBox.Show("Эта аренда уже отменена.");
+                    return;
+                }
 
-            LoadMyRentals();
+                Database.ExecuteNonQuery(
+                    "UPDATE Rentals SET rental_status = ? WHERE id = ?",
+                    new OleDbParameter("@rental_status", "Завершена"),
+                    new OleDbParameter("@id", rentalId)
+                );
+
+                Database.ExecuteNonQuery(
+                    "UPDATE Cars SET status = ? WHERE id = ?",
+                    new OleDbParameter("@status", "Свободно"),
+                    new OleDbParameter("@id", carId)
+                );
+
+                MessageBox.Show("Автомобиль возвращен.");
+                LoadRentals();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при возврате автомобиля: " + ex.Message);
+            }
         }
     }
 }

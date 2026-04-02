@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvAllUsers = new System.Windows.Forms.DataGridView();
+            this.dgvAllRentals = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).BeginInit();
+            this.dgvRentals = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllRentals)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvAllUsers
+            // dgvAllRentals
             // 
-            this.dgvAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllUsers.Location = new System.Drawing.Point(12, 12);
-            this.dgvAllUsers.Name = "dgvAllUsers";
-            this.dgvAllUsers.RowHeadersWidth = 51;
-            this.dgvAllUsers.RowTemplate.Height = 24;
-            this.dgvAllUsers.Size = new System.Drawing.Size(914, 365);
-            this.dgvAllUsers.TabIndex = 0;
+            this.dgvAllRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllRentals.Location = new System.Drawing.Point(12, 12);
+            this.dgvAllRentals.Name = "dgvAllRentals";
+            this.dgvAllRentals.RowHeadersWidth = 51;
+            this.dgvAllRentals.RowTemplate.Height = 24;
+            this.dgvAllRentals.Size = new System.Drawing.Size(392, 365);
+            this.dgvAllRentals.TabIndex = 0;
             // 
             // button1
             // 
@@ -53,23 +55,36 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dgvRentals
+            // 
+            this.dgvRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRentals.Location = new System.Drawing.Point(506, 12);
+            this.dgvRentals.Name = "dgvRentals";
+            this.dgvRentals.RowHeadersWidth = 51;
+            this.dgvRentals.RowTemplate.Height = 24;
+            this.dgvRentals.Size = new System.Drawing.Size(314, 365);
+            this.dgvRentals.TabIndex = 2;
+            // 
             // AllRentalsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 517);
+            this.Controls.Add(this.dgvRentals);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvAllUsers);
+            this.Controls.Add(this.dgvAllRentals);
             this.Name = "AllRentalsForm";
             this.Text = "AllRentalsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllRentals)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAllUsers;
+        private System.Windows.Forms.DataGridView dgvAllRentals;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvRentals;
     }
 }

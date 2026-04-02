@@ -60,7 +60,7 @@ namespace ISCarRental.Forms
                 return;
             }
 
-            MyRentalsForm rentalsForm = new MyRentalsForm(userId);
+            MyRentalsForm1 rentalsForm = new MyRentalsForm1(userId);
             rentalsForm.Show();
         }
 
@@ -118,6 +118,12 @@ namespace ISCarRental.Forms
         {
             AllUsersForm usersForm = new AllUsersForm();   
             usersForm.Show();
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm(0); // Здесь нужно передать ID аренды, для которой будет производиться оплата
+            paymentForm.Show();
         }
     }
 }
