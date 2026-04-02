@@ -3,165 +3,165 @@
     partial class CarsForm
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.DataGridView dgvCars;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.ComboBox cmbFilter;
 
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
+
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.dgvCars = new System.Windows.Forms.DataGridView();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.cmbFilter = new System.Windows.Forms.ComboBox();
+            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panelGrid = new System.Windows.Forms.Panel();
+            this.dgvCars = new System.Windows.Forms.DataGridView();
             this.panelTop.SuspendLayout();
+            this.panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvCars
-            // 
-            this.dgvCars.AllowUserToAddRows = false;
-            this.dgvCars.AllowUserToDeleteRows = false;
-            this.dgvCars.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCars.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCars.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCars.Location = new System.Drawing.Point(0, 74);
-            this.dgvCars.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvCars.Name = "dgvCars";
-            this.dgvCars.ReadOnly = true;
-            this.dgvCars.RowHeadersVisible = false;
-            this.dgvCars.RowHeadersWidth = 51;
-            this.dgvCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCars.Size = new System.Drawing.Size(1312, 660);
-            this.dgvCars.TabIndex = 1;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(1027, 677);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(133, 43);
-            this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "Обновить";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1173, 677);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(133, 43);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Закрыть";
-            this.btnClose.UseVisualStyleBackColor = false;
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.panelTop.Controls.Add(this.btnSearch);
-            this.panelTop.Controls.Add(this.cmbFilter);
+            this.panelTop.BackColor = System.Drawing.Color.White;
+            this.panelTop.Controls.Add(this.cmbStatusFilter);
+            this.panelTop.Controls.Add(this.lblStatus);
             this.panelTop.Controls.Add(this.txtSearch);
             this.panelTop.Controls.Add(this.lblSearch);
+            this.panelTop.Controls.Add(this.btnRefresh);
+            this.panelTop.Controls.Add(this.lblTitle);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1312, 74);
+            this.panelTop.Size = new System.Drawing.Size(1280, 110);
             this.panelTop.TabIndex = 0;
             // 
-            // btnSearch
+            // cmbStatusFilter
             // 
-            this.btnSearch.Location = new System.Drawing.Point(701, 21);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(102, 28);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Поиск";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatusFilter.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbStatusFilter.FormattingEnabled = true;
+            this.cmbStatusFilter.Location = new System.Drawing.Point(885, 57);
+            this.cmbStatusFilter.Name = "cmbStatusFilter";
+            this.cmbStatusFilter.Size = new System.Drawing.Size(170, 31);
+            this.cmbStatusFilter.TabIndex = 5;
+            this.cmbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cmbStatusFilter_SelectedIndexChanged);
             // 
-            // cmbFilter
+            // lblStatus
             // 
-            this.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(467, 21);
-            this.cmbFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(199, 28);
-            this.cmbFilter.TabIndex = 2;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblStatus.Location = new System.Drawing.Point(760, 58);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(115, 28);
+            this.lblStatus.TabIndex = 4;
+            this.lblStatus.Text = "Статус:";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtSearch.Location = new System.Drawing.Point(111, 21);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtSearch.Location = new System.Drawing.Point(400, 57);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(332, 26);
-            this.txtSearch.TabIndex = 1;
+            this.txtSearch.Size = new System.Drawing.Size(330, 30);
+            this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lblSearch
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSearch.Location = new System.Drawing.Point(27, 25);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblSearch.Location = new System.Drawing.Point(280, 58);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(65, 20);
-            this.lblSearch.TabIndex = 0;
+            this.lblSearch.Size = new System.Drawing.Size(110, 28);
+            this.lblSearch.TabIndex = 2;
             this.lblSearch.Text = "Поиск:";
+            this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(13, 110, 253);
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(1100, 52);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
+            this.btnRefresh.TabIndex = 1;
+            this.btnRefresh.Text = "Сбросить";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblTitle.Location = new System.Drawing.Point(25, 18);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(350, 40);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Каталог автомобилей";
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.BackColor = System.Drawing.Color.White;
+            this.panelGrid.Controls.Add(this.dgvCars);
+            this.panelGrid.Location = new System.Drawing.Point(20, 130);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(1240, 590);
+            this.panelGrid.TabIndex = 1;
+            // 
+            // dgvCars
+            // 
+            this.dgvCars.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCars.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCars.Location = new System.Drawing.Point(15, 15);
+            this.dgvCars.Name = "dgvCars";
+            this.dgvCars.RowHeadersWidth = 51;
+            this.dgvCars.RowTemplate.Height = 28;
+            this.dgvCars.Size = new System.Drawing.Size(1210, 560);
+            this.dgvCars.TabIndex = 0;
             // 
             // CarsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1312, 734);
-            this.Controls.Add(this.dgvCars);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnRefresh);
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize = new System.Drawing.Size(1280, 740);
+            this.Controls.Add(this.panelGrid);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1061, 728);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CarsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Каталог автомобилей";
             this.Load += new System.EventHandler(this.CarsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            this.panelGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
             this.ResumeLayout(false);
-
         }
 
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.ComboBox cmbStatusFilter;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panelGrid;
+        private System.Windows.Forms.DataGridView dgvCars;
     }
 }

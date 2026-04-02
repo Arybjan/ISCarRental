@@ -1,132 +1,195 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ISCarRental.Forms
 {
     public partial class NewRentForm : Form
     {
-        int userId;
+        private readonly int _clientId;
+        private const int STATUS_ACTIVE = 1;
 
-        public NewRentForm(int id)
+        public NewRentForm(int clientId)
         {
             InitializeComponent();
-            userId = id;
+            _clientId = clientId;
         }
 
         private void NewRentForm_Load(object sender, EventArgs e)
         {
-            LoadCars();
+            btnRent.BackColor = Color.FromArgb(13, 110, 253);
+            btnRent.ForeColor = Color.White;
+            btnRent.FlatStyle = FlatStyle.Flat;
+            btnRent.FlatAppearance.BorderSize = 0;
+
+            LoadAvailableCars();
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today.AddDays(1);
+            lblTotalPriceValue.Text = "0";
         }
 
-        private void LoadCars()
+        private void LoadAvailableCars()
         {
             string sql = @"
-                SELECT id, brand, model, daily_price
+                SELECT id,
+                       brand,
+                       model,
+                       daily_price,
+                       color,
+                       year_of_m,
+                       plate_number
                 FROM Cars
-                WHERE status = 'Свободно'";
+                WHERE status = ?
+                ORDER BY brand, model";
 
-            dgvCars.DataSource = Database.ExecuteQuery(sql);
+            DataTable dt = Database.ExecuteQuery(
+                sql,
+                new OleDbParameter("@status", "Свободно")
+            );
+
+            cmbCars.DataSource = dt;
+            cmbCars.DisplayMember = "model";
+            cmbCars.ValueMember = "id";
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Нет свободных автомобилей.");
+                btnRent.Enabled = false;
+            }
+            else
+            {
+                btnRent.Enabled = true;
+            }
+        }
+
+        private decimal GetSelectedCarDailyPrice()
+        {
+            if (cmbCars.SelectedItem is DataRowView rowView)
+            {
+                return Convert.ToDecimal(rowView["daily_price"]);
+            }
+
+            return 0m;
+        }
+
+        private void UpdateTotalPrice()
+        {
+            if (cmbCars.SelectedItem == null)
+            {
+                lblTotalPriceValue.Text = "0";
+                return;
+            }
+
+            DateTime startDate = dtpStartDate.Value.Date;
+            DateTime endDate = dtpEndDate.Value.Date;
+
+            int days = (endDate - startDate).Days;
+
+            if (days <= 0)
+            {
+                lblTotalPriceValue.Text = "0";
+                return;
+            }
+
+            decimal dailyPrice = GetSelectedCarDailyPrice();
+            decimal totalPrice = dailyPrice * days;
+
+            lblTotalPriceValue.Text = totalPrice.ToString("0.##");
+        }
+
+        private void cmbCars_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
+        }
+
+        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
         }
 
         private void btnRent_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dgvCars.CurrentRow == null)
+                if (cmbCars.SelectedValue == null)
                 {
-                    MessageBox.Show("Выберите автомобиль");
+                    MessageBox.Show("Выберите автомобиль.");
                     return;
                 }
 
-                int carId = Convert.ToInt32(dgvCars.CurrentRow.Cells["id"].Value);
+                int carId = Convert.ToInt32(cmbCars.SelectedValue);
+                DateTime startDate = dtpStartDate.Value.Date;
+                DateTime endDate = dtpEndDate.Value.Date;
 
-                DateTime start = dtStart.Value.Date;
-                DateTime end = dtEnd.Value.Date;
-
-                if (end <= start)
+                if (endDate <= startDate)
                 {
-                    MessageBox.Show("Дата окончания должна быть позже даты начала");
+                    MessageBox.Show("Дата окончания должна быть больше даты начала.");
                     return;
                 }
 
-                int days = (end - start).Days;
-                if (days == 0) days = 1;
+                int days = (endDate - startDate).Days;
+                decimal dailyPrice = GetSelectedCarDailyPrice();
+                decimal totalPrice = dailyPrice * days;
 
-                decimal price = Convert.ToDecimal(dgvCars.CurrentRow.Cells["daily_price"].Value);
-                decimal total = price * days;
-
-                // Сначала нужно получить ID статуса аренды
-                int statusId = GetDefaultRentalStatusId();
-
-                if (statusId == 0)
+                if (totalPrice <= 0)
                 {
-                    MessageBox.Show("Ошибка: не найден статус аренды");
+                    MessageBox.Show("Некорректная сумма аренды.");
                     return;
                 }
 
-                // Исправленный SQL запрос с добавлением status_id
-                string sql = @"INSERT INTO Rentals
-                               ([cars_id], [client_id], [start_date], [end_date], [total_price], [status_id])
-                               VALUES (?, ?, ?, ?, ?, ?)";
-
-                Database.ExecuteNonQuery(
-                    sql,
-                    new OleDbParameter("@car", carId),
-                    new OleDbParameter("@client", userId),
-                    new OleDbParameter("@start", start),
-                    new OleDbParameter("@end", end),
-                    new OleDbParameter("@price", total),
-                    new OleDbParameter("@status", statusId) // Добавлен параметр для статуса
-                );
-
-                string updateCar = "UPDATE Cars SET status='Занято' WHERE id=?";
-
-                Database.ExecuteNonQuery(
-                    updateCar,
+                DataTable carCheck = Database.ExecuteQuery(
+                    "SELECT status FROM Cars WHERE id = ?",
                     new OleDbParameter("@id", carId)
                 );
 
-                MessageBox.Show("Аренда успешно оформлена");
+                if (carCheck.Rows.Count == 0)
+                {
+                    MessageBox.Show("Автомобиль не найден.");
+                    return;
+                }
 
-                LoadCars();
+                string currentCarStatus = carCheck.Rows[0]["status"].ToString();
+
+                if (currentCarStatus != "Свободно")
+                {
+                    MessageBox.Show("Этот автомобиль уже недоступен для аренды.");
+                    LoadAvailableCars();
+                    return;
+                }
+
+                Database.ExecuteNonQuery(
+                    @"INSERT INTO Rentals 
+                      (cars_id, client_id, start_date, end_date, total_price, status_id, payment_status)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    new OleDbParameter("@cars_id", carId),
+                    new OleDbParameter("@client_id", _clientId),
+                    new OleDbParameter("@start_date", startDate),
+                    new OleDbParameter("@end_date", endDate),
+                    new OleDbParameter("@total_price", totalPrice),
+                    new OleDbParameter("@status_id", STATUS_ACTIVE),
+                    new OleDbParameter("@payment_status", "Не оплачено")
+                );
+
+                Database.ExecuteNonQuery(
+                    "UPDATE Cars SET status = ? WHERE id = ?",
+                    new OleDbParameter("@status", "Занято"),
+                    new OleDbParameter("@id", carId)
+                );
+
+                MessageBox.Show("Аренда успешно оформлена.");
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка: " + ex.Message);
-            }
-        }
-
-        // Метод для получения ID статуса по умолчанию
-        private int GetDefaultRentalStatusId ()
-        {
-            try
-            {
-                // Предполагаем, что в таблице RentalsStatus есть статус "Активен" или аналогичный
-                string sql = "SELECT id FROM RentalsStatus WHERE status_name = 'Активен'";
-
-                DataTable dt = Database.ExecuteQuery(sql);
-
-                if (dt.Rows.Count > 0)
-                {
-                    return Convert.ToInt32(dt.Rows[0]["id"]);
-                }
-
-                // Если не нашли по имени, берем первый доступный статус
-                sql = "SELECT TOP 1 id FROM RentalsStatus";
-                dt = Database.ExecuteQuery(sql);
-
-                if (dt.Rows.Count > 0)
-                {
-                    return Convert.ToInt32(dt.Rows[0]["id"]);
-                }
-
-                return 0;
-            }
-            catch
-            {
-                return 0;
+                MessageBox.Show("Ошибка при оформлении аренды: " + ex.Message);
             }
         }
     }

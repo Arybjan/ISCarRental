@@ -2,353 +2,343 @@
 {
     partial class MainForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
+
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnAdminCar = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnManageUsers = new System.Windows.Forms.Button();
-            this.btnAllRentals = new System.Windows.Forms.Button();
-            this.btnNewRental = new System.Windows.Forms.Button();
+            this.panelSidebar = new System.Windows.Forms.Panel();
+            this.lblLogo = new System.Windows.Forms.Label();
+            this.btnCars = new System.Windows.Forms.Button();
             this.btnMyRentals = new System.Windows.Forms.Button();
-            this.btnViewCars = new System.Windows.Forms.Button();
+            this.btnNewRent = new System.Windows.Forms.Button();
+            this.btnAllRentals = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panelContent = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.labelUser = new System.Windows.Forms.Label();
-            this.labelRole = new System.Windows.Forms.Label();
-            this.btnPayment = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panelMenu.SuspendLayout();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.cardCars = new System.Windows.Forms.Panel();
+            this.lblCardCarsTitle = new System.Windows.Forms.Label();
+            this.lblCardCarsText = new System.Windows.Forms.Label();
+            this.cardRent = new System.Windows.Forms.Panel();
+            this.lblCardRentTitle = new System.Windows.Forms.Label();
+            this.lblCardRentText = new System.Windows.Forms.Label();
+            this.cardMyRentals = new System.Windows.Forms.Panel();
+            this.lblCardMyRentalsTitle = new System.Windows.Forms.Label();
+            this.lblCardMyRentalsText = new System.Windows.Forms.Label();
+            this.panelSidebar.SuspendLayout();
+            this.panelTop.SuspendLayout();
+            this.panelContent.SuspendLayout();
+            this.cardCars.SuspendLayout();
+            this.cardRent.SuspendLayout();
+            this.cardMyRentals.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelSidebar
             // 
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(0, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 567);
-            this.panel1.TabIndex = 0;
+            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.panelSidebar.Controls.Add(this.btnExit);
+            this.panelSidebar.Controls.Add(this.btnAllRentals);
+            this.panelSidebar.Controls.Add(this.btnNewRent);
+            this.panelSidebar.Controls.Add(this.btnMyRentals);
+            this.panelSidebar.Controls.Add(this.btnCars);
+            this.panelSidebar.Controls.Add(this.lblLogo);
+            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebar.Name = "panelSidebar";
+            this.panelSidebar.Size = new System.Drawing.Size(250, 720);
+            this.panelSidebar.TabIndex = 0;
             // 
-            // button6
+            // lblLogo
             // 
-            this.button6.Location = new System.Drawing.Point(3, 485);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(286, 42);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.lblLogo.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.lblLogo.ForeColor = System.Drawing.Color.White;
+            this.lblLogo.Location = new System.Drawing.Point(20, 30);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(210, 60);
+            this.lblLogo.TabIndex = 0;
+            this.lblLogo.Text = "ISCarRental";
+            this.lblLogo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button5
+            // btnCars
             // 
-            this.button5.Location = new System.Drawing.Point(0, 364);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(286, 42);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCars.BackColor = System.Drawing.Color.FromArgb(37, 43, 72);
+            this.btnCars.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCars.FlatAppearance.BorderSize = 0;
+            this.btnCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCars.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnCars.ForeColor = System.Drawing.Color.White;
+            this.btnCars.Location = new System.Drawing.Point(20, 130);
+            this.btnCars.Name = "btnCars";
+            this.btnCars.Size = new System.Drawing.Size(210, 48);
+            this.btnCars.TabIndex = 1;
+            this.btnCars.Text = "Каталог авто";
+            this.btnCars.UseVisualStyleBackColor = false;
+            this.btnCars.Click += new System.EventHandler(this.btnCars_Click);
             // 
-            // button4
+            // btnMyRentals
             // 
-            this.button4.Location = new System.Drawing.Point(0, 297);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(286, 42);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnMyRentals.BackColor = System.Drawing.Color.FromArgb(37, 43, 72);
+            this.btnMyRentals.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMyRentals.FlatAppearance.BorderSize = 0;
+            this.btnMyRentals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyRentals.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnMyRentals.ForeColor = System.Drawing.Color.White;
+            this.btnMyRentals.Location = new System.Drawing.Point(20, 190);
+            this.btnMyRentals.Name = "btnMyRentals";
+            this.btnMyRentals.Size = new System.Drawing.Size(210, 48);
+            this.btnMyRentals.TabIndex = 2;
+            this.btnMyRentals.Text = "Мои аренды";
+            this.btnMyRentals.UseVisualStyleBackColor = false;
+            this.btnMyRentals.Click += new System.EventHandler(this.btnMyRentals_Click);
             // 
-            // button3
+            // btnNewRent
             // 
-            this.button3.Location = new System.Drawing.Point(0, 233);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(286, 42);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnNewRent.BackColor = System.Drawing.Color.FromArgb(37, 43, 72);
+            this.btnNewRent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewRent.FlatAppearance.BorderSize = 0;
+            this.btnNewRent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewRent.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnNewRent.ForeColor = System.Drawing.Color.White;
+            this.btnNewRent.Location = new System.Drawing.Point(20, 250);
+            this.btnNewRent.Name = "btnNewRent";
+            this.btnNewRent.Size = new System.Drawing.Size(210, 48);
+            this.btnNewRent.TabIndex = 3;
+            this.btnNewRent.Text = "Новая аренда";
+            this.btnNewRent.UseVisualStyleBackColor = false;
+            this.btnNewRent.Click += new System.EventHandler(this.btnNewRent_Click);
             // 
-            // button2
+            // btnAllRentals
             // 
-            this.button2.Location = new System.Drawing.Point(0, 168);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(286, 42);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(286, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panelMenu.Controls.Add(this.btnPayment);
-            this.panelMenu.Controls.Add(this.btnAdminCar);
-            this.panelMenu.Controls.Add(this.btnExit);
-            this.panelMenu.Controls.Add(this.btnManageUsers);
-            this.panelMenu.Controls.Add(this.btnAllRentals);
-            this.panelMenu.Controls.Add(this.btnNewRental);
-            this.panelMenu.Controls.Add(this.btnMyRentals);
-            this.panelMenu.Controls.Add(this.btnViewCars);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(293, 562);
-            this.panelMenu.TabIndex = 2;
-            // 
-            // btnAdminCar
-            // 
-            this.btnAdminCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnAdminCar.FlatAppearance.BorderSize = 0;
-            this.btnAdminCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdminCar.ForeColor = System.Drawing.Color.White;
-            this.btnAdminCar.Location = new System.Drawing.Point(0, 334);
-            this.btnAdminCar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdminCar.Name = "btnAdminCar";
-            this.btnAdminCar.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnAdminCar.Size = new System.Drawing.Size(293, 62);
-            this.btnAdminCar.TabIndex = 6;
-            this.btnAdminCar.Text = "   Управление авто";
-            this.btnAdminCar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminCar.UseVisualStyleBackColor = false;
-            this.btnAdminCar.Click += new System.EventHandler(this.btnAdminCar_Click);
+            this.btnAllRentals.BackColor = System.Drawing.Color.FromArgb(37, 43, 72);
+            this.btnAllRentals.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAllRentals.FlatAppearance.BorderSize = 0;
+            this.btnAllRentals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllRentals.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnAllRentals.ForeColor = System.Drawing.Color.White;
+            this.btnAllRentals.Location = new System.Drawing.Point(20, 310);
+            this.btnAllRentals.Name = "btnAllRentals";
+            this.btnAllRentals.Size = new System.Drawing.Size(210, 48);
+            this.btnAllRentals.TabIndex = 4;
+            this.btnAllRentals.Text = "Все аренды";
+            this.btnAllRentals.UseVisualStyleBackColor = false;
+            this.btnAllRentals.Click += new System.EventHandler(this.btnAllRentals_Click);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(0, 468);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Location = new System.Drawing.Point(20, 650);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(293, 62);
+            this.btnExit.Size = new System.Drawing.Size(210, 45);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnManageUsers
+            // panelTop
             // 
-            this.btnManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnManageUsers.FlatAppearance.BorderSize = 0;
-            this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnManageUsers.ForeColor = System.Drawing.Color.White;
-            this.btnManageUsers.Location = new System.Drawing.Point(0, 271);
-            this.btnManageUsers.Margin = new System.Windows.Forms.Padding(4);
-            this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnManageUsers.Size = new System.Drawing.Size(293, 62);
-            this.btnManageUsers.TabIndex = 4;
-            this.btnManageUsers.Text = "   Пользователи";
-            this.btnManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageUsers.UseVisualStyleBackColor = false;
-            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
+            this.panelTop.BackColor = System.Drawing.Color.White;
+            this.panelTop.Controls.Add(this.lblTitle);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(250, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1030, 80);
+            this.panelTop.TabIndex = 1;
             // 
-            // btnAllRentals
+            // lblTitle
             // 
-            this.btnAllRentals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnAllRentals.FlatAppearance.BorderSize = 0;
-            this.btnAllRentals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllRentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAllRentals.ForeColor = System.Drawing.Color.White;
-            this.btnAllRentals.Location = new System.Drawing.Point(0, 209);
-            this.btnAllRentals.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAllRentals.Name = "btnAllRentals";
-            this.btnAllRentals.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnAllRentals.Size = new System.Drawing.Size(293, 62);
-            this.btnAllRentals.TabIndex = 3;
-            this.btnAllRentals.Text = "   Все Аренды";
-            this.btnAllRentals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllRentals.UseVisualStyleBackColor = false;
-            this.btnAllRentals.Click += new System.EventHandler(this.btnAllRentals_Click);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblTitle.Location = new System.Drawing.Point(30, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(500, 40);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Панель управления";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnNewRental
+            // panelContent
             // 
-            this.btnNewRental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnNewRental.FlatAppearance.BorderSize = 0;
-            this.btnNewRental.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewRental.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNewRental.ForeColor = System.Drawing.Color.White;
-            this.btnNewRental.Location = new System.Drawing.Point(0, 136);
-            this.btnNewRental.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNewRental.Name = "btnNewRental";
-            this.btnNewRental.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnNewRental.Size = new System.Drawing.Size(293, 62);
-            this.btnNewRental.TabIndex = 2;
-            this.btnNewRental.Text = "   Новая аренда";
-            this.btnNewRental.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewRental.UseVisualStyleBackColor = false;
-            this.btnNewRental.Click += new System.EventHandler(this.btnNewRental_Click);
-            // 
-            // btnMyRentals
-            // 
-            this.btnMyRentals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnMyRentals.FlatAppearance.BorderSize = 0;
-            this.btnMyRentals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyRentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMyRentals.ForeColor = System.Drawing.Color.White;
-            this.btnMyRentals.Location = new System.Drawing.Point(0, 74);
-            this.btnMyRentals.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMyRentals.Name = "btnMyRentals";
-            this.btnMyRentals.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMyRentals.Size = new System.Drawing.Size(293, 62);
-            this.btnMyRentals.TabIndex = 1;
-            this.btnMyRentals.Text = "   Мои аренды";
-            this.btnMyRentals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyRentals.UseVisualStyleBackColor = false;
-            this.btnMyRentals.Click += new System.EventHandler(this.btnMyRentals_Click);
-            // 
-            // btnViewCars
-            // 
-            this.btnViewCars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnViewCars.FlatAppearance.BorderSize = 0;
-            this.btnViewCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnViewCars.ForeColor = System.Drawing.Color.White;
-            this.btnViewCars.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewCars.Location = new System.Drawing.Point(0, 12);
-            this.btnViewCars.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewCars.Name = "btnViewCars";
-            this.btnViewCars.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnViewCars.Size = new System.Drawing.Size(293, 62);
-            this.btnViewCars.TabIndex = 0;
-            this.btnViewCars.Text = "   Каталог авто";
-            this.btnViewCars.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewCars.UseVisualStyleBackColor = false;
-            this.btnViewCars.Click += new System.EventHandler(this.btnViewCars_Click);
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.panelContent.Controls.Add(this.cardMyRentals);
+            this.panelContent.Controls.Add(this.cardRent);
+            this.panelContent.Controls.Add(this.cardCars);
+            this.panelContent.Controls.Add(this.lblSubtitle);
+            this.panelContent.Controls.Add(this.lblWelcome);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(250, 80);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1030, 640);
+            this.panelContent.TabIndex = 2;
             // 
             // lblWelcome
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblWelcome.Location = new System.Drawing.Point(459, 37);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold);
+            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblWelcome.Location = new System.Drawing.Point(35, 30);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(254, 29);
-            this.lblWelcome.TabIndex = 3;
-            this.lblWelcome.Text = "Добро пожаловать!";
+            this.lblWelcome.Size = new System.Drawing.Size(520, 50);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "Добро пожаловать";
             // 
-            // labelUser
+            // lblSubtitle
             // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(414, 120);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(44, 16);
-            this.labelUser.TabIndex = 4;
-            this.labelUser.Text = "label1";
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblSubtitle.ForeColor = System.Drawing.Color.Gray;
+            this.lblSubtitle.Location = new System.Drawing.Point(38, 85);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(600, 25);
+            this.lblSubtitle.TabIndex = 1;
+            this.lblSubtitle.Text = "Управляйте автомобилями, арендами и оплатами в одном месте";
             // 
-            // labelRole
+            // cardCars
             // 
-            this.labelRole.AutoSize = true;
-            this.labelRole.Location = new System.Drawing.Point(414, 160);
-            this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(44, 16);
-            this.labelRole.TabIndex = 5;
-            this.labelRole.Text = "label2";
+            this.cardCars.BackColor = System.Drawing.Color.White;
+            this.cardCars.Controls.Add(this.lblCardCarsText);
+            this.cardCars.Controls.Add(this.lblCardCarsTitle);
+            this.cardCars.Location = new System.Drawing.Point(42, 150);
+            this.cardCars.Name = "cardCars";
+            this.cardCars.Size = new System.Drawing.Size(290, 170);
+            this.cardCars.TabIndex = 2;
             // 
-            // btnPayment
+            // lblCardCarsTitle
             // 
-            this.btnPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnPayment.FlatAppearance.BorderSize = 0;
-            this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPayment.ForeColor = System.Drawing.Color.White;
-            this.btnPayment.Location = new System.Drawing.Point(0, 385);
-            this.btnPayment.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnPayment.Size = new System.Drawing.Size(293, 62);
-            this.btnPayment.TabIndex = 7;
-            this.btnPayment.Text = "   Оплата";
-            this.btnPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPayment.UseVisualStyleBackColor = false;
-            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
+            this.lblCardCarsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.lblCardCarsTitle.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblCardCarsTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblCardCarsTitle.Name = "lblCardCarsTitle";
+            this.lblCardCarsTitle.Size = new System.Drawing.Size(240, 35);
+            this.lblCardCarsTitle.TabIndex = 0;
+            this.lblCardCarsTitle.Text = "Каталог авто";
+            // 
+            // lblCardCarsText
+            // 
+            this.lblCardCarsText.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.lblCardCarsText.ForeColor = System.Drawing.Color.Gray;
+            this.lblCardCarsText.Location = new System.Drawing.Point(20, 65);
+            this.lblCardCarsText.Name = "lblCardCarsText";
+            this.lblCardCarsText.Size = new System.Drawing.Size(245, 70);
+            this.lblCardCarsText.TabIndex = 1;
+            this.lblCardCarsText.Text = "Просмотр доступных автомобилей, цен, категорий и местоположения";
+            // 
+            // cardRent
+            // 
+            this.cardRent.BackColor = System.Drawing.Color.White;
+            this.cardRent.Controls.Add(this.lblCardRentText);
+            this.cardRent.Controls.Add(this.lblCardRentTitle);
+            this.cardRent.Location = new System.Drawing.Point(365, 150);
+            this.cardRent.Name = "cardRent";
+            this.cardRent.Size = new System.Drawing.Size(290, 170);
+            this.cardRent.TabIndex = 3;
+            // 
+            // lblCardRentTitle
+            // 
+            this.lblCardRentTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.lblCardRentTitle.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblCardRentTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblCardRentTitle.Name = "lblCardRentTitle";
+            this.lblCardRentTitle.Size = new System.Drawing.Size(240, 35);
+            this.lblCardRentTitle.TabIndex = 0;
+            this.lblCardRentTitle.Text = "Новая аренда";
+            // 
+            // lblCardRentText
+            // 
+            this.lblCardRentText.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.lblCardRentText.ForeColor = System.Drawing.Color.Gray;
+            this.lblCardRentText.Location = new System.Drawing.Point(20, 65);
+            this.lblCardRentText.Name = "lblCardRentText";
+            this.lblCardRentText.Size = new System.Drawing.Size(245, 70);
+            this.lblCardRentText.TabIndex = 1;
+            this.lblCardRentText.Text = "Оформляйте аренду, рассчитывайте стоимость и фиксируйте статус оплаты";
+            // 
+            // cardMyRentals
+            // 
+            this.cardMyRentals.BackColor = System.Drawing.Color.White;
+            this.cardMyRentals.Controls.Add(this.lblCardMyRentalsText);
+            this.cardMyRentals.Controls.Add(this.lblCardMyRentalsTitle);
+            this.cardMyRentals.Location = new System.Drawing.Point(688, 150);
+            this.cardMyRentals.Name = "cardMyRentals";
+            this.cardMyRentals.Size = new System.Drawing.Size(290, 170);
+            this.cardMyRentals.TabIndex = 4;
+            // 
+            // lblCardMyRentalsTitle
+            // 
+            this.lblCardMyRentalsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.lblCardMyRentalsTitle.ForeColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            this.lblCardMyRentalsTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblCardMyRentalsTitle.Name = "lblCardMyRentalsTitle";
+            this.lblCardMyRentalsTitle.Size = new System.Drawing.Size(240, 35);
+            this.lblCardMyRentalsTitle.TabIndex = 0;
+            this.lblCardMyRentalsTitle.Text = "Мои аренды";
+            // 
+            // lblCardMyRentalsText
+            // 
+            this.lblCardMyRentalsText.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.lblCardMyRentalsText.ForeColor = System.Drawing.Color.Gray;
+            this.lblCardMyRentalsText.Location = new System.Drawing.Point(20, 65);
+            this.lblCardMyRentalsText.Name = "lblCardMyRentalsText";
+            this.lblCardMyRentalsText.Size = new System.Drawing.Size(245, 70);
+            this.lblCardMyRentalsText.TabIndex = 1;
+            this.lblCardMyRentalsText.Text = "Отслеживайте свои активные, завершенные и отмененные аренды";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 562);
-            this.Controls.Add(this.labelRole);
-            this.Controls.Add(this.labelUser);
-            this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.panelTop);
+            this.Controls.Add(this.panelSidebar);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Главная";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ISCarRental CRM";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
+            this.panelSidebar.ResumeLayout(false);
+            this.panelTop.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
+            this.cardCars.ResumeLayout(false);
+            this.cardRent.ResumeLayout(false);
+            this.cardMyRentals.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
-        #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnManageUsers;
-        private System.Windows.Forms.Button btnAllRentals;
-        private System.Windows.Forms.Button btnNewRental;
+        private System.Windows.Forms.Panel panelSidebar;
+        private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.Button btnCars;
         private System.Windows.Forms.Button btnMyRentals;
-        private System.Windows.Forms.Button btnViewCars;
+        private System.Windows.Forms.Button btnNewRent;
+        private System.Windows.Forms.Button btnAllRentals;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label labelRole;
-        private System.Windows.Forms.Button btnAdminCar;
-        private System.Windows.Forms.Button btnPayment;
+        private System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.Panel cardCars;
+        private System.Windows.Forms.Label lblCardCarsTitle;
+        private System.Windows.Forms.Label lblCardCarsText;
+        private System.Windows.Forms.Panel cardRent;
+        private System.Windows.Forms.Label lblCardRentTitle;
+        private System.Windows.Forms.Label lblCardRentText;
+        private System.Windows.Forms.Panel cardMyRentals;
+        private System.Windows.Forms.Label lblCardMyRentalsTitle;
+        private System.Windows.Forms.Label lblCardMyRentalsText;
     }
 }
